@@ -1158,9 +1158,14 @@ footer{background:var(--obsidian-2);padding:60px 0 30px;border-top:1px solid var
       d.style.transform = 'scaleX('+segT+')';
     });
   }
+  function setTrackHeight(){
+    var pinH = pin.getBoundingClientRect().height || window.innerHeight;
+    track.style.height = (pinH * 3.4) + 'px';
+  }
+  setTrackHeight();
   updateTF();
   window.addEventListener('scroll', updateTF, {passive:true});
-  window.addEventListener('resize', updateTF);
+  window.addEventListener('resize', function(){ setTrackHeight(); updateTF(); });
 
   /* ---------- PARTICLES (transformation + furnace) ---------- */
   function makeParticles(canvas, opts){
