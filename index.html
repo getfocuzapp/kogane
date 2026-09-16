@@ -60,7 +60,7 @@ button{font-family:inherit;cursor:pointer;}
 /* film grain overlay */
 .grain{
   position:fixed;inset:0;pointer-events:none;z-index:9990;
-  opacity:.05;mix-blend-mode:overlay;
+  opacity:.035;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
 
@@ -85,8 +85,7 @@ p{margin:0;}
   position:fixed;top:0;left:0;right:0;z-index:500;
   display:flex;align-items:center;justify-content:space-between;
   padding:16px 28px;
-  background:linear-gradient(180deg, rgba(11,10,8,.92), rgba(11,10,8,0));
-  backdrop-filter:blur(6px);
+  background:rgba(11,10,8,.94);
   transition:background .3s ease, padding .3s ease;
 }
 .nav.scrolled{background:rgba(11,10,8,.86);padding:10px 28px;border-bottom:1px solid var(--line);}
@@ -155,7 +154,7 @@ p{margin:0;}
 
 /* ============================= HERO ============================= */
 .hero{
-  min-height:100svh;display:flex;align-items:center;position:relative;
+  min-height:100svh;max-height:1100px;display:flex;align-items:center;position:relative;
   background:
     radial-gradient(120% 90% at 78% 12%, rgba(255,122,50,.14), transparent 55%),
     radial-gradient(90% 70% at 15% 100%, rgba(231,178,75,.10), transparent 60%),
@@ -252,9 +251,9 @@ p{margin:0;}
 
 /* ============================= LORE ============================= */
 .lore{background:var(--ink);}
-.lore-head{max-width:640px;margin-bottom:56px;}
+.lore-head{max-width:720px;margin-bottom:56px;}
 .lore-head h2{font-size:clamp(2.2rem,5vw,3.6rem);color:var(--cream);}
-.lore-lines{max-width:680px;display:flex;flex-direction:column;gap:2px;}
+.lore-lines{max-width:840px;display:flex;flex-direction:column;gap:2px;}
 .lore-line{
   font-family:var(--font-display);font-size:clamp(1.1rem,2.6vw,1.6rem);
   padding:14px 0;border-bottom:1px solid var(--line);color:var(--champagne);
@@ -264,14 +263,14 @@ p{margin:0;}
 
 /* ============================= TRANSFORMATION (signature scroll moment) ============================= */
 .transform{
-  position:relative;padding:0;
+  position:relative;padding:0;background:var(--obsidian);
 }
 .transform-track{
-  height:340vh;position:relative;
+  height:340vh;position:relative;background:var(--obsidian);
 }
 .transform-pin{
-  position:sticky;top:0;height:100svh;display:flex;align-items:center;justify-content:center;
-  overflow:hidden;
+  position:sticky;top:0;height:100svh;max-height:1100px;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;background:var(--obsidian);
 }
 .tf-bg{position:absolute;inset:0;background:var(--obsidian);transition:none;}
 .tf-particles{position:absolute;inset:0;}
