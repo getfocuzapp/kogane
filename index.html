@@ -154,7 +154,7 @@ p{margin:0;}
 
 /* ============================= HERO ============================= */
 .hero{
-  min-height:100svh;max-height:1100px;display:flex;align-items:center;position:relative;
+  min-height:100svh;display:flex;align-items:center;position:relative;
   background:
     radial-gradient(120% 90% at 78% 12%, rgba(255,122,50,.14), transparent 55%),
     radial-gradient(90% 70% at 15% 100%, rgba(231,178,75,.10), transparent 60%),
@@ -269,7 +269,7 @@ p{margin:0;}
   height:340vh;position:relative;background:var(--obsidian);
 }
 .transform-pin{
-  position:sticky;top:0;height:100svh;max-height:1100px;display:flex;align-items:center;justify-content:center;
+  position:sticky;top:0;height:100svh;display:flex;align-items:center;justify-content:center;
   overflow:hidden;background:var(--obsidian);
 }
 .tf-bg{position:absolute;inset:0;background:var(--obsidian);transition:none;}
@@ -1121,10 +1121,10 @@ footer{background:var(--obsidian-2);padding:60px 0 30px;border-top:1px solid var
   function rgbStr(a){ return 'rgb('+a[0]+','+a[1]+','+a[2]+')'; }
 
   var lastStageIdx = -1;
+  var cachedPinH = pin.getBoundingClientRect().height || window.innerHeight;
   function updateTF(){
     var rect = track.getBoundingClientRect();
-    var pinH = pin.getBoundingClientRect().height || window.innerHeight;
-    var total = rect.height - pinH;
+    var total = rect.height - cachedPinH;
     var scrolled = -rect.top;
     var progress = Math.min(Math.max(scrolled/total, 0), 1);
 
@@ -1159,8 +1159,8 @@ footer{background:var(--obsidian-2);padding:60px 0 30px;border-top:1px solid var
     });
   }
   function setTrackHeight(){
-    var pinH = pin.getBoundingClientRect().height || window.innerHeight;
-    track.style.height = (pinH * 3.4) + 'px';
+    cachedPinH = pin.getBoundingClientRect().height || window.innerHeight;
+    track.style.height = (cachedPinH * 3.4) + 'px';
   }
   setTrackHeight();
   updateTF();
