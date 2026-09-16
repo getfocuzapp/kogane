@@ -1070,6 +1070,7 @@ footer{background:var(--obsidian-2);padding:60px 0 30px;border-top:1px solid var
 
   /* ---------- TRANSFORMATION SCROLLYTELLING ---------- */
   var track = document.getElementById('tfTrack');
+  var pin = document.querySelector('.transform-pin');
   var bg = document.getElementById('tfBg');
   var label = document.getElementById('tfLabel');
   var headline = document.getElementById('tfHeadline');
@@ -1122,7 +1123,8 @@ footer{background:var(--obsidian-2);padding:60px 0 30px;border-top:1px solid var
   var lastStageIdx = -1;
   function updateTF(){
     var rect = track.getBoundingClientRect();
-    var total = rect.height - window.innerHeight;
+    var pinH = pin.getBoundingClientRect().height || window.innerHeight;
+    var total = rect.height - pinH;
     var scrolled = -rect.top;
     var progress = Math.min(Math.max(scrolled/total, 0), 1);
 
