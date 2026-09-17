@@ -526,6 +526,31 @@ footer{background:var(--obsidian-2);padding:60px 0 30px;border-top:1px solid var
 .foot-mid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;align-items:center;border-top:1px solid var(--line);padding-top:24px;margin-bottom:24px;}
 .foot-chain{font-size:.8rem;opacity:.6;}
 .foot-links{display:flex;gap:10px;flex-wrap:wrap;}
+.foot-chain-wrap{display:flex;flex-direction:column;gap:10px;}
+
+/* ============================= CA PILL (copy contract address) ============================= */
+.ca-pill{
+  display:inline-flex;align-items:center;gap:9px;
+  border:1px solid var(--line);border-radius:999px;padding:11px 18px;
+  background:rgba(231,178,75,.06);color:var(--gold-hi);font-family:var(--font-body);
+  font-size:.82rem;cursor:pointer;transition:background .25s, border-color .25s, transform .2s;
+  margin:18px 0 24px;
+}
+.ca-pill:hover{background:rgba(231,178,75,.12);border-color:rgba(231,178,75,.5);transform:translateY(-2px);}
+.ca-pill .ca-label{font-weight:700;opacity:.6;font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;}
+.ca-pill .ca-value{font-variant-numeric:tabular-nums;font-weight:600;}
+.ca-pill .ca-icon{opacity:.7;font-size:.92rem;}
+.ca-pill.copied{background:rgba(201,255,102,.16);border-color:var(--lime);color:var(--lime);}
+
+.ca-pill-inline{
+  background:none;border:none;padding:0;margin:0;display:inline-flex;align-items:center;gap:8px;
+  color:var(--gold-hi);font-family:var(--font-display);font-weight:800;font-size:1.05rem;
+}
+.ca-pill-inline .ca-icon{font-size:.8rem;opacity:.6;}
+.ca-pill-inline:hover{opacity:.8;background:none;transform:none;}
+@media(max-width:640px){.ca-pill-inline{font-size:.82rem;}}
+
+.ca-pill-footer{margin:0;padding:8px 16px;font-size:.78rem;}
 .foot-links a{font-size:.85rem;opacity:.75;padding:8px 16px;border:1px solid var(--line);border-radius:999px;}
 .foot-links a:hover{color:var(--gold-hi);border-color:var(--gold-hi);}
 .foot-disclaimer{font-size:.75rem;opacity:.45;line-height:1.6;max-width:900px;}
@@ -555,7 +580,7 @@ footer{background:var(--obsidian-2);padding:60px 0 30px;border-top:1px solid var
     <a href="https://x.com/Koganebsc" target="_blank" rel="noopener">X</a>
     <a href="https://t.me/koganememe" target="_blank" rel="noopener">Telegram</a>
   </div>
-  <a href="#buy" class="nav-cta" id="navBuy">Buy $KOGANE</a>
+  <a href="https://pancakeswap.finance/swap?outputCurrency=0xAf28CA17a051d31a1EcB9fDfBe8a7A581a3F6200" target="_blank" rel="noopener" class="nav-cta" id="navBuy">Buy $KOGANE</a>
   <button class="nav-burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="nav-scrim" id="scrim"></div>
@@ -582,14 +607,17 @@ footer{background:var(--obsidian-2);padding:60px 0 30px;border-top:1px solid var
       <p class="sub">The Golden Shiba has arrived. A dog, a billion tokens, a suspicious amount of gold — and absolutely no intention of behaving normally.</p>
       <div class="hero-actions">
         <div class="hero-actions-col">
-          <a href="https://t.me/koganememe" target="_blank" rel="noopener" class="btn btn-gold" id="buyBtn">Buy $KOGANE</a>
-          <span class="btn-note">Contract drops at launch — the pack hears it first.</span>
+          <a href="https://pancakeswap.finance/swap?outputCurrency=0xAf28CA17a051d31a1EcB9fDfBe8a7A581a3F6200" target="_blank" rel="noopener" class="btn btn-gold" id="buyBtn">Buy $KOGANE</a>
+          <span class="btn-note">&nbsp;</span>
         </div>
         <div class="hero-actions-col">
           <a href="https://t.me/koganememe" target="_blank" rel="noopener" class="btn btn-outline">Join the Pack</a>
           <span class="btn-note">&nbsp;</span>
         </div>
       </div>
+      <button type="button" class="ca-pill" data-ca="0xAf28CA17a051d31a1EcB9fDfBe8a7A581a3F6200">
+        <span class="ca-label">CA</span><span class="ca-value">0xAf28CA...a3F6200</span><span class="ca-icon">⧉</span>
+      </button>
       <div class="spec-row">
         <div class="spec"><b>BNB Chain</b><span>Network</span></div>
         <div class="spec"><b>BEP-20</b><span>Standard</span></div>
@@ -692,6 +720,12 @@ footer{background:var(--obsidian-2);padding:60px 0 30px;border-top:1px solid var
       <div class="ledger-row hot"><span class="l-label">Launch burn</span><span class="l-dots"></span><span class="l-value">30%</span></div>
       <div class="ledger-row warm"><span class="l-label">Strategic burn reserve</span><span class="l-dots"></span><span class="l-value">10%</span></div>
       <div class="ledger-row deep"><span class="l-label">Burned per KOL onboarded</span><span class="l-dots"></span><span class="l-value">1%</span></div>
+      <div class="ledger-row">
+        <span class="l-label">Contract</span><span class="l-dots"></span>
+        <button type="button" class="ca-pill ca-pill-inline" data-ca="0xAf28CA17a051d31a1EcB9fDfBe8a7A581a3F6200">
+          <span class="ca-value">0xAf28CA...a3F6200</span><span class="ca-icon">⧉</span>
+        </button>
+      </div>
     </div>
     <div class="numbers-foot reveal">
       <h3>Where did the dog's money go?</h3>
@@ -843,8 +877,8 @@ footer{background:var(--obsidian-2);padding:60px 0 30px;border-top:1px solid var
     <h2 class="reveal">Look at him.</h2>
     <p class="reveal">He's just sitting there. You are the one refreshing the chart.</p>
     <div class="hero-actions-col reveal" style="align-items:center;">
-      <a href="https://t.me/koganememe" target="_blank" rel="noopener" class="btn btn-outline">View Chart</a>
-      <span class="btn-note">Chart link goes live with the contract — Telegram has updates.</span>
+      <a href="https://dexscreener.com/bsc/0xAf28CA17a051d31a1EcB9fDfBe8a7A581a3F6200" target="_blank" rel="noopener" class="btn btn-outline">View Chart</a>
+      <span class="btn-note">Live on DexScreener.</span>
     </div>
     <p class="funny reveal">Refreshing the chart will not make the candle go up. We have tested this extensively.</p>
   </div>
@@ -950,8 +984,15 @@ footer{background:var(--obsidian-2);padding:60px 0 30px;border-top:1px solid var
       <div class="foot-tagline">Born in black. Forged in gold.</div>
     </div>
     <div class="foot-mid">
-      <div class="foot-chain">BNB Smart Chain · BEP-20</div>
+      <div class="foot-chain-wrap">
+        <div class="foot-chain">BNB Smart Chain · BEP-20</div>
+        <button type="button" class="ca-pill ca-pill-footer" data-ca="0xAf28CA17a051d31a1EcB9fDfBe8a7A581a3F6200">
+          <span class="ca-label">CA</span><span class="ca-value">0xAf28CA...a3F6200</span><span class="ca-icon">⧉</span>
+        </button>
+      </div>
       <div class="foot-links">
+        <a href="https://dexscreener.com/bsc/0xAf28CA17a051d31a1EcB9fDfBe8a7A581a3F6200" target="_blank" rel="noopener">DexScreener ↗</a>
+        <a href="https://bscscan.com/address/0xAf28CA17a051d31a1EcB9fDfBe8a7A581a3F6200" target="_blank" rel="noopener">BscScan ↗</a>
         <a href="KOGANE-Whitepaper.pdf" target="_blank" rel="noopener">Whitepaper ↗</a>
         <a href="https://x.com/Koganebsc" target="_blank" rel="noopener">X ↗</a>
         <a href="https://t.me/koganememe" target="_blank" rel="noopener">Telegram ↗</a>
@@ -1054,6 +1095,35 @@ footer{background:var(--obsidian-2);padding:60px 0 30px;border-top:1px solid var
   } else {
     burnCountEl.textContent = '300,000,000';
   }
+
+  /* ---------- COPY CONTRACT ADDRESS ---------- */
+  function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try{ document.execCommand('copy'); }catch(e){}
+    document.body.removeChild(ta);
+  }
+  document.querySelectorAll('.ca-pill').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var full = btn.getAttribute('data-ca');
+      var valueEl = btn.querySelector('.ca-value');
+      var prevText = valueEl ? valueEl.textContent : '';
+      function onCopied(){
+        btn.classList.add('copied');
+        if(valueEl) valueEl.textContent = 'Copied ✓';
+        setTimeout(function(){
+          btn.classList.remove('copied');
+          if(valueEl) valueEl.textContent = prevText;
+        }, 1500);
+      }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(full).then(onCopied).catch(function(){ fallbackCopy(full); onCopied(); });
+      } else {
+        fallbackCopy(full); onCopied();
+      }
+    });
+  });
 
   /* ---------- MAGNETIC BUTTONS ---------- */
   if(!reduced && window.matchMedia('(pointer:fine)').matches){
